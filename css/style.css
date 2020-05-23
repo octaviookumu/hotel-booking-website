@@ -31,6 +31,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 1.6rem;
   color: var(--dark-color);
+  overflow-x: hidden;
 }
 
 a {
@@ -188,7 +189,6 @@ i.fas {
 .hero {
   width: 100%;
   height: 100vh;
-  background: url("/images/hero_background.jpg") center no-repeat;
   background-size: cover;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -210,6 +210,159 @@ i.fas {
   height: inherit;
   background-color: var(--purple-transparent-alt);
   z-index: -1;
+}
+
+.slider-div {
+  padding: 0;
+  position: relative;
+  max-width: 100%;
+}
+
+.slider-div input {
+  display: none;
+}
+
+.container-content {
+  position: absolute;
+  height: 100vh;
+  width: 80%;
+  margin: 0 10%;
+  z-index: 100;
+  background: var(--purple-transparent-alt);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container-slider {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.container .slide_img {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+
+.container .slide_img .prev,
+.container .slide_img .next {
+  width: 10%;
+  height: inherit;
+  position: absolute;
+  top: 0;
+  background-color: var(--purple-transparent-alt);
+  z-index: 99;
+  cursor: pointer;
+  text-align: center;
+}
+
+.container .slide_img .next {
+  right: 0;
+}
+
+.container .slide_img .prev {
+  left: 0;
+}
+
+.container .slide_img .prev span,
+.container .slide_img .next span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  cursor: pointer;
+  border: 3px solid #a5a5a5;
+  border-radius: 1.2rem;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.container .slide_img .prev span:hover,
+.container .slide_img .next span:hover {
+  border-color: #fff;
+}
+
+.container .slide_img .prev span i,
+.container .slide_img .next span i {
+  color: #fff;
+  padding: 1rem;
+}
+
+.container .slide_img .prev span {
+  right: 35%;
+}
+
+.container .slide_img .next span {
+  left: 35%;
+}
+
+#one {
+  background: url("/images/hotel1.jpg") center no-repeat;
+}
+
+#two {
+  background: url("/images/hotel2.jpg") center no-repeat;
+}
+
+#three {
+  background: url("/images/hotel3.jpg") center no-repeat;
+}
+
+#four {
+  background: url("/images/hotel4.jpg") center no-repeat;
+}
+
+#i1:checked ~ #one,
+#i2:checked ~ #two,
+#i3:checked ~ #three,
+#i4:checked ~ #four {
+  z-index: 9;
+  -webkit-animation: scroll 1s ease-in-out;
+          animation: scroll 1s ease-in-out;
+}
+
+@-webkit-keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .main-heading {
