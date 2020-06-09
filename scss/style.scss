@@ -60,6 +60,9 @@ section {
 i.fas {
 	color: #fff;
 }
+i.rating {
+	color: var(--yellow-solid);
+}
 
 /* Reusable styles */
 .container {
@@ -72,6 +75,26 @@ i.fas {
 .form-btn {
 	margin-top: 2.5rem;
 	cursor: pointer;
+}
+
+.btn-gradient {
+	background-image: var(--gradient-color);
+	&:hover {
+		background-image: var(--gradient-color-alt);
+	}
+}
+
+.btn-purple {
+	background-color: var(--purple-solid);
+	&:hover {
+		background-color: #56247f;
+	}
+}
+
+.dots {
+	font-size: 2.4rem;
+	margin-left: .5rem;
+	opacity: .75;
 }
 
 /* Header styles */
@@ -219,12 +242,6 @@ $small_height: 55%; //Slider height - small display
 $small_nav_width: 15%; // Previous and Next width - small display
 
 $box-shadow: 0 11px 22px rgba(0, 0, 0, 0.20), 0 7px 7px rgba(0, 0, 0, 0.24);
-$brown: #795548;
-$blue: #2196f3;
-$green: #4caf50;
-$magenta: #f44336;
-$nav_color: rgba(255, 82, 82, .2);
-$nav_hover_color: rgba(255, 82, 82, .8);
 
 .container {
 	.slide_img {
@@ -334,19 +351,6 @@ $nav_hover_color: rgba(255, 82, 82, .8);
 	font-family: 'Courgette', cursive;
 }
 
-.btn-gradient {
-	background-image: var(--gradient-color);
-	&:hover {
-		background-image: var(--gradient-color-alt);
-	}
-}
-
-.dots {
-	font-size: 2.4rem;
-	margin-left: .5rem;
-	opacity: .75;
-}
-
 // Booking section styles
 
 .booking {
@@ -380,9 +384,78 @@ $nav_hover_color: rgba(255, 82, 82, .8);
 	// resize: none;
 }
 
-.btn-purple {
-	background-color: var(--purple-solid);
-	&:hover {
-		background-color: #56247f;
+::placeholder {
+	color: inherit;
+}
+
+// Featured hotels section styles
+.section-head {
+	text-align: center;
+	margin-bottom: 5rem;
+}
+
+.heading {
+	display: block;
+	font-size: 4rem;
+	text-transform: uppercase;
+}
+
+.sub-heading {
+	font-size: 1.7rem;
+	font-family: 'Courgette', cursive;
+	font-weight: 300;
+	color: #a5a5a5;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	grid-gap: 2.5rem;
+}
+
+.grid-item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.featured-hotels {
+	height: 35rem;
+	color: #fff;
+	padding: 1rem;
+	position: relative;
+	z-index: 0;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: var(--purple-transparent-alt);
+		z-index: -1;
 	}
+}
+
+.hotel-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -2;
+}
+
+.hotel-name {
+	font-size: 2.6rem;
+}
+
+.hotel-price {
+	font-size: 1.8rem;
+}
+
+.hotel-rating {
+	margin: 1rem 0 2.5rem;
 }
