@@ -97,6 +97,10 @@ i.rating {
 	opacity: .75;
 }
 
+.header .active {
+	background-color: var(--purple-solid);
+}
+
 /* Header styles */
 .header {
 	width: 100%;
@@ -184,7 +188,6 @@ i.rating {
 .hero {
 	width: 100%;
 	height: 100vh;
-	// background: url("/images/hero_background.jpg") center no-repeat;
 	background-size: cover;
 	display: flex;
 	align-items: center;
@@ -215,8 +218,8 @@ i.rating {
 .container-content {
 	position: absolute;
 	height: 100vh;
-	width: 80%;
-	margin: 0 10%;
+	width: 60%;
+	margin: 0 20%;
 	z-index: 100;
 	background: var(--purple-transparent-alt);
 	display: flex;
@@ -233,16 +236,6 @@ i.rating {
 
 // Slideshow Starts
 
-$big_width: 70%; //Slider width - large display
-$big_height: 40%; //Slider height - large display
-$big_nav_width: 10%; // Previous and Next width - large display
-
-$small_width: 100%; //Slider width - small display
-$small_height: 55%; //Slider height - small display
-$small_nav_width: 15%; // Previous and Next width - small display
-
-$box-shadow: 0 11px 22px rgba(0, 0, 0, 0.20), 0 7px 7px rgba(0, 0, 0, 0.24);
-
 .container {
 	.slide_img {
 		position: absolute;
@@ -254,7 +247,7 @@ $box-shadow: 0 11px 22px rgba(0, 0, 0, 0.20), 0 7px 7px rgba(0, 0, 0, 0.24);
 		background-repeat: no-repeat;
 		.prev,
 		.next {
-			width: 10%;
+			width: 20%;
 			height: inherit;
 			position: absolute;
 			top: 0;
@@ -410,7 +403,7 @@ $box-shadow: 0 11px 22px rgba(0, 0, 0, 0.20), 0 7px 7px rgba(0, 0, 0, 0.24);
 .grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-	grid-gap: 2.5rem;
+	grid-gap: 2rem;
 }
 
 .grid-item {
@@ -594,5 +587,197 @@ $box-shadow: 0 11px 22px rgba(0, 0, 0, 0.20), 0 7px 7px rgba(0, 0, 0, 0.24);
 		transform: scaleX(0);
 		transform-origin: left;
 		transition: transform .5s;
+	}
+}
+
+// Footer section styles
+.footer {
+	padding: 5rem 0;
+	background-color: var(--purple-solid);
+	color: #fff;
+}
+
+.footer-content-brand {
+	margin-bottom: 5rem;
+}
+
+.footer .paragraph {
+	color: inherit;
+}
+
+.footer-heading {
+	text-transform: uppercase;
+	margin-bottom: 2.5rem;
+}
+
+.social-media {
+	display: flex;
+}
+
+.sm-link {
+	width: 4rem;
+	height: 4rem;
+	font-size: 2rem;
+	border: 2px soild var(--yellow-solid);
+	border-radius: 50%;
+	display: flex;
+	margin-right: 1rem;
+	transition: background-color .5s;
+	&:hover {
+		background-color: var(--yellow-solid);
+		color: var(--dark-color);
+	}
+}
+
+.sm-link i {
+	margin: auto;
+}
+
+// Media Queries
+
+@media screen and (min-width: 768px) {
+	// Header section styles
+	.header {
+		height: 10rem;
+		.active {
+			height: 6rem;
+		}
+	}
+	// Hero section styles
+	.title {
+		font-size: 8rem;
+	}
+	// Contact section styles
+	.contact-content {
+		justify-content: space-between;
+	}
+	.traveler-wrap {
+		display: block;
+		flex: 0 0 45%;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+	.contact-form {
+		flex: 0 0 50%;
+		align-self: flex-start;
+	}
+	.input-group-wrap {
+		display: flex;
+		.input-group {
+			width: 50%;
+			margin-right: 2rem;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+	// Footer sectionstyles
+	.footer {
+		overflow-x: hidden;
+	}
+	.footer-content {
+		display: flex;
+		// justify-content: space-between;
+	}
+	.footer-content-brand {
+		margin-bottom: 0;
+		flex: 0 0 60%;
+	}
+	.footer .paragraph {
+		margin-top: 2.5rem;
+	}
+	.footer-heading {
+		margin-bottom: 5rem;
+	}
+	.social-media-wrap {
+		flex: 0 0 40%;
+		margin-left: 2.5rem;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	section:not(.booking) {
+		padding: 10rem 0;
+	}
+
+	// Header section styles
+	.hamburger-menu {
+		display: none;
+	}
+
+	.nav-list {
+		position: initial;
+		width: initial;
+		height: initial;
+		background-color: transparent;
+		flex-direction: row;
+		justify-content: initial;
+		opacity: 1;
+		transform: scale(1);
+	}
+
+	.nav-item:not(:last-child) {
+		margin-right: 3rem;
+		margin-bottom: 0;
+	}
+
+	.nav-link {
+		font-size: 1.3rem;
+		font-weight: normal;
+		transition: color .5s;
+		font-family: sans-serif;
+		&:hover {
+			color: var(--yellow-solid);
+		}
+	}
+
+	// Hero section styles
+	.title {
+		font-size: 12rem;
+	}
+	.sub-title {
+		font-size: 4.6rem;
+	}
+
+	// Booking section styles
+	.book-form {
+		display: flex;
+		justify-content: space-between;
+		.input-group {
+			margin-bottom: 0;
+			&:first-child {
+				flex: 0 0 20%;
+			}
+		}
+	}
+	.input,
+	.options {
+		min-width: 10rem;
+	}
+	// Rooms section styles
+	// .rooms-grid {
+	// 	grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+	// 	grid-gap: 8rem;
+	// }
+
+	// .featured-rooms {
+	// 	flex-direction: row;
+	// 	align-items: flex-start;
+	// }
+
+	// .room-info-wrap {
+	// 	margin-left: 1.5rem;
+	// }
+}
+
+@media screen and (min-width: 1200px) {
+	.book-form {
+		.input-group {
+			&:first-child {
+				flex: 0 0 30%;
+			}
+		}
 	}
 }
